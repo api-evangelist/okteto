@@ -1,0 +1,47 @@
+generated: '2026-10-18'
+method: searched
+generator: extract-docs-artifacts.py (deepseek)
+source: https://www.okteto.com/docs/reference/okteto-cli/
+sources:
+- https://www.okteto.com/docs/reference/okteto-cli/
+- https://www.okteto.com/docs/reference/okteto-cli
+- https://www.okteto.com/docs/get-started/install-okteto-cli
+- https://www.okteto.com/docs/development/using-okteto-cli
+install:
+- method: curl script
+  command: curl https://get.okteto.com -sSfL | sh
+- method: curl script with version
+  command: curl https://get.okteto.com -sSfL | OKTETO_VERSION=3.24.0 sh
+- method: Homebrew
+  command: brew install okteto/cli/okteto
+- method: Windows download
+  command: Download https://downloads.okteto.com/cli/stable/okteto.exe and add it to your $PATH
+- method: scoop
+  command: scoop install okteto
+commands:
+- group: analytics
+  commands:
+  - okteto analytics
+  - okteto analytics [parameters]
+  purpose: Enable/Disable analytics collection
+- group: build
+  commands:
+  - okteto build
+  - okteto build [image...]
+  purpose: Build and push images using Okteto Build Service
+- group: context
+  commands:
+  - okteto context
+  - okteto ctx
+  - okteto context delete
+  - okteto context list
+  - okteto context show
+  - okteto context use
+  purpose: Set the default Okteto Context
+- group: deploy
+  commands:
+  - okteto deploy
+  purpose: Deploy Development Environment
+binary: okteto
+name: Okteto CLI
+docs: https://www.okteto.com/docs/reference/okteto-cli/

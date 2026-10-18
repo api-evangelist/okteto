@@ -1,0 +1,43 @@
+name: Okteto MCP Server (candidate)
+type: MCPServer
+generated: '2026-10-18'
+method: derived
+status: candidate
+source: openapi/okteto-openapi.yml
+description: >-
+  No official Okteto MCP server was found. Searched: web search "Okteto MCP server", GitHub repo search org:okteto mcp (0 results),
+  https://www.okteto.com/llms.txt (200, no MCP mention), https://www.okteto.com/docs/agentic.md (200, no MCP mention), and the
+  provider's agent-skills repo github.com/okteto/okteto-agent-skills (Claude Code plugin with skills, commands and hooks; no MCP server).
+  Okteto's agent surface is CLI-driven skills (see skills/_provider/). The tool list below is DERIVED from the two operations in the
+  Okteto Public API (BETA) OpenAPI and is not shipped by anyone.
+deployment:
+  mode: none
+  auth: unknown
+  verified: derived
+evidence:
+- url: https://www.okteto.com/llms.txt
+  status: 200
+  note: Lists agent skills and Claude Code plugin; no MCP server
+- url: https://www.okteto.com/docs/agentic.md
+  status: 200
+  note: Agentic workflows docs; 0 MCP mentions
+- url: https://github.com/okteto/okteto-agent-skills
+  status: 200
+  note: Provider-published skills/plugin; no MCP server
+upstream_auth:
+  scheme: bearer
+  note: Admin Access Token (Okteto Dashboard > Admin > Admin Access Tokens), per https://www.okteto.com/docs/admin/okteto-api.md
+base_url: https://{oktetoURL}/api/v0
+tools:
+- name: list_namespaces
+  operationId: ListNamespaces
+  method: GET
+  path: /namespaces
+  description: Get list of namespaces (Development or Preview) managed by the Okteto platform; optional `type` query filter.
+  readOnly: true
+- name: list_applications_for_namespace
+  operationId: ListApplicationsForNamespace
+  method: GET
+  path: /namespaces/{namespaceName}/applications
+  description: Get list of applications deployed within a namespace.
+  readOnly: true

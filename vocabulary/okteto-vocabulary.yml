@@ -1,0 +1,35 @@
+generated: '2026-10-18'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/okteto-openapi.yml
+vocabulary:
+  name: Okteto Domain Vocabulary
+  description: 'Terms declared by Okteto''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-18'
+  terms:
+  - term: namespaces
+    definition: Operations about namespaces (Development or Preview)
+    tags:
+    - Resource Group
+    source: openapi/okteto-openapi.yml
+  - term: applications
+    definition: Operations about applications
+    tags:
+    - Resource Group
+    source: openapi/okteto-openapi.yml
+  - term: Application
+    definition: 'Object declared by the contract with fields: branch, creationDate, labels, lastUpdated, name, repository, status, uuid.'
+    tags:
+    - Object
+    source: openapi/okteto-openapi.yml#/components/schemas/Application
+  - term: ErrorResponse
+    definition: 'Object declared by the contract with fields: message.'
+    tags:
+    - Object
+    source: openapi/okteto-openapi.yml#/components/schemas/ErrorResponse
+  - term: Namespace
+    definition: 'Object declared by the contract with fields: creationDate, lastUpdated, name, persistent, personal, status, type, uuid.'
+    tags:
+    - Object
+    source: openapi/okteto-openapi.yml#/components/schemas/Namespace

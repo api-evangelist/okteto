@@ -1,0 +1,290 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: support@okteto.com
+  description: |
+    The Okteto Public API is defined using OpenAPI, providing access to resources managed by Okteto. Combined with the Okteto CLI or other tools, it allows you to automate workflows, like deleting unused development volumes within a Namespace or redeploying applications.
+  title: Okteto Public API
+  version: 0.1.0
+externalDocs:
+  description: Find out more about Okteto
+  url: https://okteto.com/docs
+servers:
+- description: Okteto's public URL
+  url: "https://{oktetoURL}/api/v0"
+  variables:
+    oktetoURL:
+      default: okteto.test.com
+security:
+- BearerAuth: []
+tags:
+- description: Operations about namespaces (Development or Preview)
+  name: namespaces
+- description: Operations about applications
+  name: applications
+paths:
+  /namespaces:
+    get:
+      description: Returns a list of namespaces managed by Okteto.
+      operationId: ListNamespaces
+      parameters:
+      - description: Type of the namespace to filter. Possible values are 'Development'
+          and 'Preview'.
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          enum:
+          - development
+          - preview
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Namespace'
+                type: array
+          description: Gets the list of namespaces managed by Okteto.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Some or all of the parameters are invalid
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Access token is missing or invalid
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Provided token does not have the necessary permissions to perform
+            the operation
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: An unexpected error
+      summary: Get list of namespaces managed by the Okteto platform
+      tags:
+      - namespaces
+  /namespaces/{namespaceName}/applications:
+    get:
+      description: Returns a list of applications deployed within a namespace.
+      operationId: ListApplicationsForNamespace
+      parameters:
+      - description: Namespace name where the applications are deployed.
+        explode: false
+        in: path
+        name: namespaceName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Application'
+                type: array
+          description: A list of applications.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Access token is missing or invalid
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Provided token does not have the necessary permissions to perform
+            the operation
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Requested resource was not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: An unexpected error
+      summary: Get list of applications deployed within a namespace
+      tags:
+      - applications
+components:
+  responses:
+    BadRequestError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Some or all of the parameters are invalid
+    ForbiddenError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Provided token does not have the necessary permissions to perform
+        the operation
+    InternalServerError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: An unexpected error
+    NotFoundError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Requested resource was not found
+    UnauthorizedError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Access token is missing or invalid
+  schemas:
+    Application:
+      example:
+        lastUpdated: 2000-01-23T04:56:07.000+00:00
+        name: name
+        creationDate: 2000-01-23T04:56:07.000+00:00
+        repository: repository
+        branch: branch
+        uuid: uuid
+        labels:
+        - labels
+        - labels
+        status: Deployed
+      properties:
+        branch:
+          description: Indicates the branch from where the application was deployed.
+            It could be empty
+          type: string
+        creationDate:
+          description: Date and time when the application was created.
+          format: date-time
+          type: string
+        labels:
+          description: Labels attached to the application
+          items:
+            type: string
+          type: array
+        lastUpdated:
+          description: Date and time when the application was last updated.
+          format: date-time
+          type: string
+        name:
+          description: Name of the application.
+          type: string
+        repository:
+          description: Indicates the repository from where the application was deployed.
+            It could be empty
+          type: string
+        status:
+          description: Status of the application
+          enum:
+          - Deployed
+          - Destroying
+          - Error
+          - Progressing
+          type: string
+        uuid:
+          description: Unique identifier of the application.
+          type: string
+      required:
+      - creationDate
+      - lastUpdated
+      - name
+      - status
+      - uuid
+      type: object
+    ErrorResponse:
+      example:
+        message: message
+      properties:
+        message:
+          type: string
+      type: object
+    Namespace:
+      example:
+        lastUpdated: 2000-01-23T04:56:07.000+00:00
+        name: name
+        personal: true
+        creationDate: 2000-01-23T04:56:07.000+00:00
+        persistent: true
+        type: development
+        uuid: uuid
+        status: Active
+      properties:
+        creationDate:
+          description: Date and time when the namespace was created.
+          format: date-time
+          type: string
+        lastUpdated:
+          description: Date and time when the namespace was last updated.
+          format: date-time
+          type: string
+        name:
+          description: Name of the namespace.
+          type: string
+        persistent:
+          description: Indicates if the namespace is persistent.
+          type: boolean
+        personal:
+          description: Indicates if the namespace is the default namespace for any
+            user in the instance.
+          type: boolean
+        status:
+          description: "Status of the namespace. Possible values are 'Active', 'Inactive',\
+            \ 'Deleted'."
+          enum:
+          - Active
+          - DestroyAllFailed
+          - DestroyingAll
+          - Deleting
+          - Inactive
+          - Sleeping
+          - DeleteFailed
+          type: string
+        type:
+          description: Type of the namespace. Possible values are 'Development' and
+            'Preview'.
+          enum:
+          - development
+          - preview
+          type: string
+        uuid:
+          description: Unique identifier of the namespace.
+          type: string
+      required:
+      - creationDate
+      - lastUpdated
+      - name
+      - persistent
+      - personal
+      - status
+      - type
+      - uuid
+      type: object
+  securitySchemes:
+    BearerAuth:
+      scheme: bearer
+      type: http

@@ -1,0 +1,8 @@
+generated: '2026-10-18'
+method: searched
+source: https://www.okteto.com/docs/admin/okteto-api.md
+name: Okteto rate limits
+limit_count: 0
+limits: []
+docs: https://www.okteto.com/docs/admin/okteto-api.md
+note: No rate limits documented for the Okteto API. The API is in beta and rate limiting policies may be implemented in the future.

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/okteto/main/json-schema/okteto-application-schema.json",
+  "title": "Application",
+  "x-generated": "2026-10-18",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/okteto-openapi.yml#/components/schemas/Application",
+  "properties": {
+    "branch": {
+      "description": "Indicates the branch from where the application was deployed. It could be empty",
+      "type": "string"
+    },
+    "creationDate": {
+      "description": "Date and time when the application was created.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "labels": {
+      "description": "Labels attached to the application",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "lastUpdated": {
+      "description": "Date and time when the application was last updated.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the application.",
+      "type": "string"
+    },
+    "repository": {
+      "description": "Indicates the repository from where the application was deployed. It could be empty",
+      "type": "string"
+    },
+    "status": {
+      "description": "Status of the application",
+      "enum": [
+        "Deployed",
+        "Destroying",
+        "Error",
+        "Progressing"
+      ],
+      "type": "string"
+    },
+    "uuid": {
+      "description": "Unique identifier of the application.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "creationDate",
+    "lastUpdated",
+    "name",
+    "status",
+    "uuid"
+  ],
+  "type": "object"
+}

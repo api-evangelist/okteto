@@ -1,0 +1,25 @@
+{
+  "provider": "okteto",
+  "sources": [
+    "_original/okteto-public-api-openapi.yaml",
+    "okteto-openapi.yml"
+  ],
+  "outputs": [
+    "okteto-applications-api-openapi.yml",
+    "okteto-namespaces-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/okteto-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "okteto-public-api-openapi.yaml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "okteto-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "tag 'applications' spans 2 source specs (okteto-public-api-openapi.yaml, okteto-openapi.yml): per-path servers applied",
+    "tag 'namespaces' spans 2 source specs (okteto-public-api-openapi.yaml, okteto-openapi.yml): per-path servers applied",
+    "apis.yml register: written (+2 apis, 2 total)"
+  ],
+  "skipped": []
+}

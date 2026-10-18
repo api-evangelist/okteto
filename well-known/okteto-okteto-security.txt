@@ -1,0 +1,6 @@
+Contact: mailto:security@okteto.com
+Expires: 2027-09-01T00:00:00.000Z
+Policy: https://www.okteto.com/security/
+Acknowledgments: https://www.okteto.com/security/#acknowledgments
+Preferred-Languages: en
+Canonical: https://www.okteto.com/.well-known/security.txt

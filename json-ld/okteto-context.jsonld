@@ -1,0 +1,67 @@
+{
+  "@context": {
+    "@vocab": "https://okteto.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "okteto": "https://okteto.com/schema#",
+    "Application": "okteto:Application",
+    "branch": {
+      "@id": "okteto:branch",
+      "@type": "xsd:string"
+    },
+    "creationDate": {
+      "@id": "okteto:creationDate",
+      "@type": "xsd:dateTime"
+    },
+    "labels": {
+      "@id": "okteto:labels",
+      "@container": "@list"
+    },
+    "lastUpdated": {
+      "@id": "okteto:lastUpdated",
+      "@type": "xsd:dateTime"
+    },
+    "name": {
+      "@id": "okteto:name",
+      "@type": "xsd:string"
+    },
+    "repository": {
+      "@id": "okteto:repository",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "okteto:status",
+      "@type": "xsd:string"
+    },
+    "uuid": {
+      "@id": "okteto:uuid",
+      "@type": "xsd:string"
+    },
+    "ErrorResponse": "okteto:ErrorResponse",
+    "message": {
+      "@id": "okteto:message",
+      "@type": "xsd:string"
+    },
+    "Namespace": "okteto:Namespace",
+    "persistent": {
+      "@id": "okteto:persistent",
+      "@type": "xsd:boolean"
+    },
+    "personal": {
+      "@id": "okteto:personal",
+      "@type": "xsd:boolean"
+    },
+    "type": {
+      "@id": "okteto:type",
+      "@type": "xsd:string"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Okteto API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Okteto's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-18) from openapi/okteto-openapi.yml.",
+  "dcterms:created": "2026-10-18",
+  "dcterms:source": [
+    "openapi/okteto-openapi.yml"
+  ]
+}

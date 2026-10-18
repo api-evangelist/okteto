@@ -1,0 +1,13 @@
+{
+  "name": "okteto-plugins",
+  "owner": {
+    "name": "Okteto"
+  },
+  "plugins": [
+    {
+      "name": "okteto",
+      "description": "Okteto development environment skills for AI agents",
+      "source": "./plugins/okteto"
+    }
+  ]
+}

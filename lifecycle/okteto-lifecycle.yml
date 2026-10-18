@@ -1,0 +1,21 @@
+generated: '2026-10-18'
+method: searched
+generator: extract-docs-artifacts.py (deepseek)
+source: https://www.okteto.com/docs/release-notes/
+sources:
+- https://www.okteto.com/docs/release-notes/
+- https://www.okteto.com/docs/1.50/release-notes
+- https://www.okteto.com/docs/release-notes
+- https://www.okteto.com/docs/1.48/release-notes
+versioning:
+  scheme: semantic versioning (major.minor.patch)
+  current: '1.49'
+  how_selected: URL path (/docs/{version}/) and documentation version selector
+  docs: https://www.okteto.com/docs/release-notes/
+deprecation:
+  policy: Features are deprecated with notice in release notes and warnings in the chart, with removal planned for future major versions (e.g.,
+    'will be removed in Okteto Chart 2.0')
+  notice_period: Not explicitly stated
+  docs: https://www.okteto.com/docs/release-notes/
+status_page: null
+docs: https://www.okteto.com/docs/release-notes/

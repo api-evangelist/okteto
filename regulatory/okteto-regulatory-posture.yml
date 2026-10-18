@@ -1,0 +1,84 @@
+generated: '2026-10-18'
+method: searched
+source:
+- https://www.okteto.com/privacy-policy/
+- https://www.okteto.com/legal/
+- https://www.okteto.com/security/
+signals:
+  data_subject_request:
+    url: https://www.okteto.com/privacy-policy/
+    section: How to access your data
+    note: Grants a right to a copy and to deletion, exercised by contacting Okteto. No dedicated DSR form, and it names no response timeline.
+    evidence:
+    - source: https://www.okteto.com/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-18'
+      quote: The data you provide through Okteto is yours. You have the right to request a copy of your information or to request its deletion.
+  data_retention:
+    url: https://www.okteto.com/privacy-policy/
+    section: How we store and protect the information we collect
+    note: Data is kept for the life of the account, then deleted or anonymized after a "reasonable time period". No fixed retention period is stated.
+    evidence:
+    - source: https://www.okteto.com/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-18'
+      quote: We keep information about you for as long as your account is active. If your account becomes inactive, we will delete or anonymize your data after a reasonable time period.
+  data_residency:
+    url: https://www.okteto.com/privacy-policy/
+    section: How we store and protect the information we collect
+    note: States that data is stored in the United States through hosting partners. It offers no choice of region and names no transfer mechanism.
+    evidence:
+    - source: https://www.okteto.com/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-18'
+      quote: The information we collect is stored by our data hosting partners in the United States.
+  subprocessors:
+    url: https://www.okteto.com/privacy-policy/
+    section: Information we collect automatically when you use our services
+    note: Names only the analytics vendors (Google Analytics, Mixpanel, PostHog), plus PostHog again in the AI Agent Fleets beta terms. This is not a complete, dated subprocessor list, and the hosting partners are not named.
+    evidence:
+    - source: https://www.okteto.com/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-18'
+      quote: We do this by using cookies, as well as third-party analytics partners such as Google Analytics, Mixpanel or PostHog.
+  ai_transparency:
+    url: https://www.okteto.com/privacy-policy/
+    section: Okteto AI Agent Fleets – Beta Program Terms / 3. Data Collection
+    note: The beta terms for the AI agent feature say that users bring their own third-party LLM keys and that prompt interactions may be logged for product improvement. This discloses how the AI feature handles data. It is not a full AI transparency statement.
+    evidence:
+    - source: https://www.okteto.com/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-18'
+      quote: Users must provide their own API key for third-party LLMs (e.g., Claude or OpenAI). Okteto does not provide or bill for these services.
+    - source: https://www.okteto.com/privacy-policy/
+      http_status: 200
+      fetched: '2026-10-18'
+      quote: Actions such as agent creation, test execution, PR generation, and prompt interactions may be logged for product improvement.
+  age_assurance:
+    url: https://www.okteto.com/legal/
+    section: Terms of Service
+    note: Sets a minimum age of 13 (16 in the EU), backed only by the user's own representation. There is no age-verification mechanism.
+    evidence:
+    - source: https://www.okteto.com/legal/
+      http_status: 200
+      fetched: '2026-10-18'
+      quote: Our Services are not directed to children. Access to and use of our Services is only for those over the age of 13 (or 16 in the European Union).
+  notice_and_action:
+    url: https://www.okteto.com/legal/
+    section: Copyright Infringement and DMCA Policy.
+    note: A copyright notice-and-takedown process under the DMCA. Okteto commits to responding by removing or disabling infringing material.
+    evidence:
+    - source: https://www.okteto.com/legal/
+      http_status: 200
+      fetched: '2026-10-18'
+      quote: Okteto will respond to all such notices, including as required or appropriate by removing the infringing material or disabling all links to the infringing material.
+probed_absent:
+- signal: incident_notification
+  urls:
+  - {url: 'https://www.okteto.com/privacy-policy/', status: 200}
+  - {url: 'https://www.okteto.com/legal/', status: 200}
+  note: Neither page commits to notifying anyone of a breach. The privacy policy says only that "no security system is impenetrable". The /security/ page is a vulnerability disclosure program, not a breach-notice commitment.
+- signal: exit_assistance
+  urls:
+  - {url: 'https://www.okteto.com/legal/', status: 200}
+  note: The Termination section says only that the user "may simply discontinue using our Services". It offers no export or transition help.

@@ -1,0 +1,70 @@
+generated: '2026-10-18'
+method: searched
+generator: extract-docs-artifacts.py (deepseek)
+source: https://www.okteto.com/docs/release-notes/
+sources:
+- https://www.okteto.com/docs/release-notes/
+- https://www.okteto.com/docs/1.50/release-notes
+- https://www.okteto.com/docs/release-notes
+- https://www.okteto.com/docs/1.48/release-notes
+entries:
+- version: 1.50.0
+  breaking: false
+  highlights:
+  - 'Login restricted to GitHub teams: With GitHub as the authentication provider, the auth.github.teams Helm setting restricts login to members
+    of specific teams of the GitHub organization set in auth.github.organization.'
+  - 'Azure Cloud Credentials: Cloud Credentials now support Microsoft Azure.'
+  - 'Developers can wake Global Preview Environments: Any Developer can now wake a sleeping Global Preview Environment from the Okteto Dashboard.'
+- version: 1.49.0
+  date: '2026-10-08'
+  breaking: true
+  highlights:
+  - 'Kubernetes 1.33 Removal: Support for Kubernetes 1.33 has been removed in this release.'
+  - 'safe-to-evict annotation now defaults to false: Okteto marks the pods it creates in development Namespaces as not safe to evict.'
+  - You can now configure the default compression used by BuildKit at instance level using the buildOpts Helm setting or the Admin Variables OKTETO_BUILD_COMPRESSION,
+    OKTETO_BUILD_COMPRESSION_LEVEL and OKTETO_BUILD_FORCE_COMPRESSION.
+  - 'Kubernetes 1.36 Support: Added support for Kubernetes 1.36.'
+- version: 1.48.1
+  date: '2026-09-10'
+  breaking: false
+  highlights:
+  - Fixed an issue where git repository URLs containing embedded credentials could be exposed in plain text across the app.
+  - 'Okteto CLI 3.23.1: Fixed okteto pipeline deploy and okteto preview deploy failing when run from a repository that uses git worktrees.'
+- version: 1.48.0
+  date: '2026-09-04'
+  breaking: false
+  highlights:
+  - 'Legacy tolerations settings deprecated: The tolerations.oktetoPool, tolerations.devPool, and tolerations.buildPool Helm settings are deprecated
+    and will be removed in Okteto Chart 2.0.'
+  - 'Removed chart settings: The oktetoAI and prepullImages.includeAgent settings have been removed from the Okteto Chart.'
+  - 'Opt out of node CA injection: New daemonset.injectCA.enabled Helm setting, which defaults to true.'
+  - 'PKCS#8 private keys for the wildcard certificate: The Okteto API and the registry garbage-collection job now accept PKCS#8 private keys.'
+- version: 1.47.0
+  date: '2026-08-06'
+  breaking: false
+  highlights:
+  - 'OCI media types enabled by default in builds: The BuildKit bundled with Okteto was upgraded from 0.29 to 0.31.'
+  - 'Disabling Kubernetes service links in Docker Compose: Docker Compose services now support a per-service x-enable-service-links field.'
+  - 'Okteto skill setup from the Namespace view: The Namespace view now includes a shortcut to set up the Okteto skill.'
+- version: 1.46.0
+  date: '2026-07-03'
+  breaking: false
+  highlights:
+  - 'Workload identity for Docker Compose services: Docker Compose services now support a per-service x-okteto-identity-token directive.'
+  - 'Linked pull request in the Preview Environment view: The Preview Environment details view now shows the pull request associated with the
+    environment.'
+  - 'Chart version in the Help menu: The Okteto Chart version is now shown in the Help menu for all users.'
+- version: 1.45.0
+  date: '2026-06-05'
+  breaking: false
+  highlights:
+  - 'Filter resources by status in the Namespace view: The resource list in a Namespace can now be filtered by status.'
+  - Upgraded the bundled ingress-nginx to address CVE-2026-9256, a high-severity vulnerability in the ingress-nginx controller.
+- version: 1.44.0
+  date: '2026-05-08'
+  breaking: false
+scheme: semantic versioning
+current_version: '1.49'
+docs: https://www.okteto.com/docs/release-notes/
+note: The pages show version 1.50 as "Unreleased" and version 1.49 as "Latest release". The changelog uses semantic versioning with major.minor.patch
+  format.

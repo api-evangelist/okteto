@@ -1,0 +1,4 @@
+generated: '2026-10-18'
+method: none
+scopes: []
+note: The Okteto API uses Bearer token authentication, not OAuth2, so there are no OAuth scopes.

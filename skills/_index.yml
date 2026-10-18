@@ -1,0 +1,22 @@
+name: Okteto agent skills
+generated: '2026-10-18'
+method: searched
+source: https://github.com/okteto/okteto-agent-skills
+skills:
+- name: okteto-inventory-namespaces-and-applications
+  file: skills/okteto-inventory-namespaces-and-applications.md
+  origin: generated
+  operations: [ListNamespaces, ListApplicationsForNamespace]
+provider_published:
+  repo: https://github.com/okteto/okteto-agent-skills
+  note: Saved verbatim; CLI-driven Claude Code plugin skills, not bound to REST operations.
+  files:
+  - {name: okteto, file: skills/_provider/plugins/okteto/skills/okteto/SKILL.md}
+  - {name: okteto-debugging, file: skills/_provider/plugins/okteto/skills/okteto-debugging/SKILL.md}
+  - {name: okteto-manifest-optimizer, file: skills/_provider/plugins/okteto/skills/okteto-manifest-optimizer/SKILL.md}
+  - {name: okteto-onboarding, file: skills/_provider/plugins/okteto/skills/okteto-onboarding/SKILL.md}
+  - {name: okteto-preview, file: skills/_provider/plugins/okteto/skills/preview/SKILL.md}
+  - {name: AGENTS.md, file: skills/_provider/agents/AGENTS.md}
+  - {name: AGENT_CONTEXT.md, file: skills/_provider/AGENT_CONTEXT.md}
+  - {name: plugin.json, file: skills/_provider/plugins/okteto/.claude-plugin/plugin.json}
+  - {name: marketplace.json, file: skills/_provider/.claude-plugin/marketplace.json}

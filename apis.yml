@@ -1,23 +1,183 @@
 aid: okteto
+
 name: Okteto
-description: 'Okteto is a company surfaced via the API Evangelist harvest backlog (source: kin-score-markets)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: 'Okteto is a development-environment platform built on Kubernetes. Its site says it "gives coding agents production-like environments
+  to verify their work": isolated, full-stack environments that run on your own infrastructure. Teams use it for Kubernetes development environments,
+  preview environments and testing of cloud-native applications. Okteto publishes an open-source CLI (github.com/okteto/okteto), reference documentation,
+  release notes and a community forum.'
+
 url: https://raw.githubusercontent.com/api-evangelist/okteto/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:kin-score-markets
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-18 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-18'
+
 modified: '2026-10-18'
+
 tags:
 - Company
-apis: []
+- Kubernetes
+- Development Environments
+- Cloud Native
+- Developer Tools
+- Preview Environments
+- AI Agents
+- CLI
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
+image: https://www.okteto.com/okteto-meta-image.png
+
 common:
+- type: AgenticAccess
+  url: agentic-access/okteto-agentic-access.yml
+- type: Plans
+  url: plans/okteto-plans-pricing.yml
+- type: Spectral
+  url: rules/okteto-rules.yml
+- type: JSONLD
+  url: json-ld/okteto-context.jsonld
+- type: Vocabulary
+  url: vocabulary/okteto-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/okteto-data-model.yml
+- type: CLI
+  url: cli/okteto-cli.yml
+- type: ChangeLog
+  url: changelog/okteto-changelog.yml
+- type: Conventions
+  url: conventions/okteto-conventions.yml
+- type: Sandbox
+  url: sandbox/okteto-sandbox.yml
+- type: Deprecation
+  url: https://www.okteto.com/docs/release-notes/
+- type: Lifecycle
+  url: lifecycle/okteto-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/okteto-problem-types.yml
+- type: Conformance
+  url: conformance/okteto-conformance.yml
+- type: Overlay
+  url: overlays/okteto-openapi-overlay.yaml
+- type: LLMsTxt
+  url: llms/okteto-llms.txt
+- type: SecurityTxt
+  url: well-known/okteto-security.txt
+- type: SecurityTxt
+  url: well-known/okteto-okteto-security.txt
+- type: WellKnown
+  url: well-known/okteto-well-known.yml
+- type: Hosts
+  url: hosts/okteto-hosts.yml
+- type: Vendors
+  url: vendors/okteto-vendors.yml
+- type: SDKs
+  url: packages/okteto-packages.yml
+- type: Packages
+  url: packages/okteto-packages.yml
+- type: Authentication
+  url: authentication/okteto-authentication.yml
+- type: VulnerabilityDisclosure
+  url: security/okteto-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/okteto-domain-security.yml
 - type: Website
   url: https://okteto.com
+- type: Documentation
+  url: https://www.okteto.com/docs/
+- type: APIReference
+  url: https://www.okteto.com/docs/reference/
+- type: GettingStarted
+  url: https://www.okteto.com/docs/get-started/install/
+- type: ChangeLog
+  url: https://www.okteto.com/docs/release-notes/
+- type: Blog
+  url: https://www.okteto.com/blog
+- type: GitHubOrganization
+  url: https://github.com/okteto
+- type: Pricing
+  url: https://www.okteto.com/pricing
+- type: SignUp
+  url: https://www.okteto.com/signup
+- type: Support
+  url: https://support.okteto.com/hc/en-us
+- type: Community
+  url: https://community.okteto.com/
+- type: Contact
+  url: https://www.okteto.com/contact/
+- type: Security
+  url: https://www.okteto.com/security/
+- type: TermsOfService
+  url: https://www.okteto.com/legal/
+- type: PrivacyPolicy
+  url: https://www.okteto.com/privacy-policy/
+
+apis:
+- aid: okteto:okteto-applications-api
+  name: Okteto Applications API
+  description: Operations about applications
+  humanURL: https://www.okteto.com/docs/admin/okteto-api
+  baseURL: https://{oktetoURL}/api/v0
+  tags:
+  - applications
+  properties:
+  - type: OpenAPI
+    url: openapi/okteto-applications-api-openapi.yml
+  - type: Documentation
+    url: https://www.okteto.com/docs/admin/okteto-api
+  - type: JSONSchema
+    url: json-schema/okteto-namespace-schema.json
+  - type: JSONSchema
+    url: json-schema/okteto-application-schema.json
+- aid: okteto:okteto-namespaces-api
+  name: Okteto Namespaces API
+  description: Operations about namespaces (Development or Preview)
+  humanURL: https://www.okteto.com/docs/admin/okteto-api
+  baseURL: https://{oktetoURL}/api/v0
+  tags:
+  - namespaces
+  properties:
+  - type: OpenAPI
+    url: openapi/okteto-namespaces-api-openapi.yml
+  - type: Documentation
+    url: https://www.okteto.com/docs/admin/okteto-api
+  - type: JSONSchema
+    url: json-schema/okteto-namespace-schema.json
+  - type: JSONSchema
+    url: json-schema/okteto-application-schema.json
+x-coverage:
+  state: covered
+  reason: identity-verified
+  detail: Website https://okteto.com redirects to www.okteto.com (200, title/meta name Okteto). status.okteto.com and cloud.okteto.com redirect
+    to www.okteto.com marketing pages and were not recorded.
+  evidence:
+  - url: https://okteto.com
+    status: 200
+  - url: https://www.okteto.com/legal/
+    status: 200
+  - url: https://www.okteto.com/privacy-policy/
+    status: 200
+  - url: https://community.okteto.com/
+    status: 200
+  - url: https://support.okteto.com/hc/en-us
+    status: 403
+x-enrichment:
+  date: '2026-10-18'
+  status: enriched
+  artifacts_added: 48
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=deepseek,regulatory=anthropic

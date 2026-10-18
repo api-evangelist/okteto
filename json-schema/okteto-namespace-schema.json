@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/okteto/main/json-schema/okteto-namespace-schema.json",
+  "title": "Namespace",
+  "x-generated": "2026-10-18",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/okteto-openapi.yml#/components/schemas/Namespace",
+  "properties": {
+    "creationDate": {
+      "description": "Date and time when the namespace was created.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "lastUpdated": {
+      "description": "Date and time when the namespace was last updated.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name of the namespace.",
+      "type": "string"
+    },
+    "persistent": {
+      "description": "Indicates if the namespace is persistent.",
+      "type": "boolean"
+    },
+    "personal": {
+      "description": "Indicates if the namespace is the default namespace for any user in the instance.",
+      "type": "boolean"
+    },
+    "status": {
+      "description": "Status of the namespace. Possible values are 'Active', 'Inactive', 'Deleted'.",
+      "enum": [
+        "Active",
+        "DestroyAllFailed",
+        "DestroyingAll",
+        "Deleting",
+        "Inactive",
+        "Sleeping",
+        "DeleteFailed"
+      ],
+      "type": "string"
+    },
+    "type": {
+      "description": "Type of the namespace. Possible values are 'Development' and 'Preview'.",
+      "enum": [
+        "development",
+        "preview"
+      ],
+      "type": "string"
+    },
+    "uuid": {
+      "description": "Unique identifier of the namespace.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "creationDate",
+    "lastUpdated",
+    "name",
+    "persistent",
+    "personal",
+    "status",
+    "type",
+    "uuid"
+  ],
+  "type": "object"
+}

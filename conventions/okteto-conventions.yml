@@ -1,0 +1,38 @@
+generated: '2026-10-18'
+method: derived
+source: openapi/okteto-openapi.yml
+authentication:
+  style: bearer-token
+  location: header
+  header: Authorization
+  scheme: Bearer
+  docs: https://www.okteto.com/docs/admin/okteto-api.md
+idempotency:
+  coverage: none
+  note: No idempotency mechanism documented in the OpenAPI specification
+pagination:
+  style: none
+  note: List endpoints return all results without pagination parameters
+field_expansion:
+  supported: false
+metadata:
+  supported: false
+request_id:
+  supported: false
+versioning:
+  scheme: url-path
+  parameter: oktetoURL
+  note: API version is part of URL path (/api/v0)
+error_envelope:
+  shape: object
+  field: message
+  type_field: null
+rate_limit_signaling:
+  headers: []
+  status_code: null
+reversibility:
+  coverage: none
+  note: The API provides management operations (list, get) but no write operations that would require reversal
+dry_run_mode:
+  supported: false
+note: The Okteto API is currently in beta and conventions may change. Authentication uses Bearer tokens, error responses follow a simple object format with a message field.

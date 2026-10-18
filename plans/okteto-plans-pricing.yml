@@ -1,0 +1,44 @@
+generated: '2026-10-18'
+method: searched
+generator: extract-docs-artifacts.py (deepseek)
+source: https://www.okteto.com/pricing/
+sources:
+- https://www.okteto.com/pricing/
+name: Okteto pricing
+plans:
+- name: Starter
+  price_text: Free
+  description: Best for small teams getting started
+  features:
+  - Up to 5 users
+  - Unlimited environments
+  - Community forum support
+  - Self-Hosted deployment
+  price: 0
+- name: Scale
+  price_text: Contact us for pricing
+  description: Best for growing engineering teams
+  features:
+  - Unlimited users
+  - Unlimited environments
+  - Single sign-on with GitHub & Google
+  - Ticketing support
+  - Self-Hosted deployment
+  - Role-based access control
+- name: Enterprise
+  price_text: Contact us for pricing
+  description: Best for large organizations with advanced security and support needs
+  features:
+  - Unlimited users
+  - Unlimited environments
+  - Single sign-on with GitHub, Google & OpenID Connect
+  - Dedicated Slack and priority escalations
+  - Self-Hosted or BYOC deployment
+  - Role-based access control
+  - Service Level Agreement
+audience: business-product
+pricing_basis: per-seat
+delivery:
+  delivery: self-hosted
+  evidence: All plans offer Self-Hosted deployment, with Enterprise also offering BYOC (Bring Your Own Cloud)
+docs: https://www.okteto.com/pricing/

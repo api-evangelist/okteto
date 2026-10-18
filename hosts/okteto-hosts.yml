@@ -1,0 +1,131 @@
+generated: '2026-10-18'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 8
+  own: 7
+  other_domain: 0
+  platform: 1
+  roles:
+  - api
+  - community
+  - docs
+  - other
+  - source
+  - support
+  - website
+hosts:
+- host: api.okteto.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: okteto.com
+  role: api
+  relation: own
+- host: community.okteto.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types:
+  - Community
+  serves: []
+  registrable_domain: okteto.com
+  role: community
+  relation: own
+- host: docs.okteto.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  - well-known
+  types: []
+  serves: []
+  title: 'Okteto: the environment platform for agentic development | Okteto Documentation'
+  status: 200
+  registrable_domain: okteto.com
+  role: docs
+  relation: own
+- host: downloads.okteto.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: okteto.com
+  role: other
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  - docs-index
+  types:
+  - GitHubOrganization
+  serves:
+  - docs
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: okteto.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  serves:
+  - hosting
+  vendor: netlify
+  registrable_domain: okteto.com
+  role: website
+  relation: own
+- host: support.okteto.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Support
+  serves:
+  - support
+  vendor: zendesk
+  registrable_domain: okteto.com
+  role: support
+  relation: own
+- host: www.okteto.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types:
+  - Deprecation
+  - Documentation
+  - APIReference
+  - GettingStarted
+  - ChangeLog
+  - Blog
+  - Pricing
+  - SignUp
+  - Contact
+  - Security
+  - TermsOfService
+  - PrivacyPolicy
+  serves:
+  - docs
+  registrable_domain: okteto.com
+  role: docs
+  relation: own

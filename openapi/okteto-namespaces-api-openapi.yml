@@ -1,0 +1,154 @@
+openapi: 3.2.0
+info:
+  title: Okteto Namespaces API
+  version: 0.1.0
+  contact:
+    email: support@okteto.com
+  description: 'Operations tagged namespaces across 2 of this provider''s published API definitions: okteto-public-api-openapi.yaml, okteto-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- description: Okteto's public URL
+  url: https://{oktetoURL}/api/v0
+  variables:
+    oktetoURL:
+      default: okteto.test.com
+security:
+- BearerAuth: []
+tags:
+- description: Operations about namespaces (Development or Preview)
+  name: Namespaces
+paths:
+  /namespaces:
+    get:
+      description: Returns a list of namespaces managed by Okteto.
+      operationId: ListNamespaces
+      parameters:
+      - description: Type of the namespace to filter. Possible values are 'Development' and 'Preview'.
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          enum:
+          - development
+          - preview
+          type: string
+        style: form
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Namespace'
+                type: array
+          description: Gets the list of namespaces managed by Okteto.
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Some or all of the parameters are invalid
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Access token is missing or invalid
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Provided token does not have the necessary permissions to perform the operation
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: An unexpected error
+      summary: Get list of namespaces managed by the Okteto platform
+      tags:
+      - Namespaces
+    servers:
+    - description: Okteto's public URL
+      url: https://{oktetoURL}/api/v0
+      variables:
+        oktetoURL:
+          default: okteto.test.com
+components:
+  schemas:
+    Namespace:
+      example:
+        lastUpdated: 2000-01-23 04:56:07+00:00
+        name: name
+        personal: true
+        creationDate: 2000-01-23 04:56:07+00:00
+        persistent: true
+        type: development
+        uuid: uuid
+        status: Active
+      properties:
+        creationDate:
+          description: Date and time when the namespace was created.
+          format: date-time
+          type: string
+        lastUpdated:
+          description: Date and time when the namespace was last updated.
+          format: date-time
+          type: string
+        name:
+          description: Name of the namespace.
+          type: string
+        persistent:
+          description: Indicates if the namespace is persistent.
+          type: boolean
+        personal:
+          description: Indicates if the namespace is the default namespace for any user in the instance.
+          type: boolean
+        status:
+          description: Status of the namespace. Possible values are 'Active', 'Inactive', 'Deleted'.
+          enum:
+          - Active
+          - DestroyAllFailed
+          - DestroyingAll
+          - Deleting
+          - Inactive
+          - Sleeping
+          - DeleteFailed
+          type: string
+        type:
+          description: Type of the namespace. Possible values are 'Development' and 'Preview'.
+          enum:
+          - development
+          - preview
+          type: string
+        uuid:
+          description: Unique identifier of the namespace.
+          type: string
+      required:
+      - creationDate
+      - lastUpdated
+      - name
+      - persistent
+      - personal
+      - status
+      - type
+      - uuid
+      type: object
+    ErrorResponse:
+      example:
+        message: message
+      properties:
+        message:
+          type: string
+      type: object
+  securitySchemes:
+    BearerAuth:
+      scheme: bearer
+      type: http
+externalDocs:
+  description: Find out more about Okteto
+  url: https://okteto.com/docs
+x-refined-from:
+- okteto-public-api-openapi.yaml
+- okteto-openapi.yml

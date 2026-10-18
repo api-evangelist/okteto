@@ -1,0 +1,26 @@
+generated: '2026-10-18'
+method: searched
+generator: extract-docs-artifacts.py (deepseek)
+source: https://www.okteto.com/customers/privacy-dynamics/
+sources:
+- https://www.okteto.com/customers/privacy-dynamics/
+- https://www.okteto.com/privacy-policy/
+- https://www.okteto.com/security/
+- https://www.okteto.com/privacy-policy/
+standards:
+- id: soc2
+  conforms: true
+  evidence: SOC2 Type 2 Compliant
+- id: openapi-3.0
+  conforms: true
+  evidence: the document declares 3.0.1
+- id: oauth2
+  conforms: false
+  evidence: 'securitySchemes: BearerAuth (http)'
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations
+docs: https://www.okteto.com/customers/privacy-dynamics/

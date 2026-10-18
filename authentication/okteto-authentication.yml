@@ -1,0 +1,35 @@
+generated: '2026-10-18'
+method: searched
+generator: extract-docs-artifacts.py (deepseek)
+source: https://www.okteto.com/docs/self-hosted/install/auth/openid-connect
+sources:
+- https://www.okteto.com/docs/self-hosted/install/auth/openid-connect
+- https://www.okteto.com/docs/1.50/self-hosted/install/auth/openid-connect
+- https://www.okteto.com/docs/1.50/admin/cloud-credentials/azure-cloud-credentials
+- https://www.okteto.com/docs/1.43/core/credentials/kubernetes-credentials
+description: Authentication schemes for Okteto as documented in the provided pages
+schemes:
+- type: oauth2
+  name: OpenID Connect
+  evidence: Okteto supports any identity provider that implements the OpenID Connect standard.
+  flows:
+  - authorization_code
+  scopes:
+  - openid
+  - email
+  - profile
+  how_to_obtain: Create an OpenID Connect application with your identity provider and configure clientId and clientSecret in Okteto's Helm configuration.
+- type: jwt
+  name: Azure Workload ID
+  evidence: Azure Cloud Credentials let the commands in your Okteto Manifests authenticate to Microsoft Azure with the identity of your Okteto
+    cluster, without client secrets.
+  how_to_obtain: Configure Azure Cloud Credentials in Okteto Admin Dashboard with Tenant ID, Client ID, Audience JWT Claim (api://AzureADTokenExchange),
+    and Authority Host.
+- type: other
+  name: Kubernetes Credential Plugin
+  evidence: The kubeconfig provided by Okteto uses a credential plugin to authenticate access your Kubernetes cluster.
+  how_to_obtain: Use 'okteto kubeconfig' command or download credentials from Okteto dashboard Settings > Setup section.
+docs: https://www.okteto.com/docs/self-hosted/install/auth/openid-connect, https://www.okteto.com/docs/1.50/self-hosted/install/auth/openid-connect,
+  https://www.okteto.com/docs/1.50/admin/cloud-credentials/azure-cloud-credentials, https://www.okteto.com/docs/1.43/core/credentials/kubernetes-credentials
+note: 'The pages describe authentication for different contexts: OpenID Connect for user authentication to Okteto, Azure Workload ID for cloud
+  credentials, and Kubernetes credential plugin for cluster access.'

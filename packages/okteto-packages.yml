@@ -1,0 +1,51 @@
+generated: '2026-10-18'
+method: probed
+generator: harvest-packages.py
+source: registry metadata endpoints (registry.npmjs.org, pypi.org, rubygems.org, api.nuget.org, packagist.org, crates.io) ; github.com/okteto
+ownership_rule: 'official: true only when the registry metadata (homepage, repository, author, URLs) names the provider''s domain (okteto.com,
+  security/okteto-domain-security.yml, security/okteto-vulnerability-disclosure.yml) or its accepted GitHub org (okteto).'
+packages:
+- name: movies-api
+  registry: github
+  url: https://github.com/okteto/movies-api
+  language: JavaScript
+  official: true
+  version: null
+  published: '2026-06-10'
+  source_repo: https://github.com/okteto/movies-api
+  evidence: repository in github.com/okteto, whose profile names the provider's domain
+- name: vscode-remote-go
+  registry: github
+  url: https://github.com/okteto/vscode-remote-go
+  language: Go
+  official: true
+  version: null
+  published: '2026-06-02'
+  source_repo: https://github.com/okteto/vscode-remote-go
+  evidence: repository in github.com/okteto, whose profile names the provider's domain
+- name: fastapi-snapshot-app
+  registry: github
+  url: https://github.com/okteto/fastapi-snapshot-app
+  language: Python
+  official: true
+  version: null
+  published: '2025-12-05'
+  source_repo: https://github.com/okteto/fastapi-snapshot-app
+  evidence: repository in github.com/okteto, whose profile names the provider's domain
+- name: guestbook-api
+  registry: github
+  url: https://github.com/okteto/guestbook-api
+  language: Python
+  official: true
+  version: null
+  published: '2025-09-26'
+  source_repo: https://github.com/okteto/guestbook-api
+  evidence: repository in github.com/okteto, whose profile names the provider's domain
+- name: okteto
+  registry: npm
+  url: https://www.npmjs.com/package/okteto
+  language: JavaScript
+  official: false
+  version: 1.0.1
+  published: '2022-05-21'
+  evidence: 'name match only: the metadata names neither the provider''s domain nor its GitHub org'

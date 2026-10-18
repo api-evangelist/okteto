@@ -1,0 +1,5 @@
+generated: '2026-10-18'
+method: searched
+source: https://www.okteto.com/docs/
+families: []
+note: Okteto provides a web-based Admin Dashboard for managing environments and users, but does not publish client-side UI component libraries or embeddable components for external integration.

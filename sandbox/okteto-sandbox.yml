@@ -1,0 +1,13 @@
+generated: '2026-10-18'
+method: searched
+source: https://www.okteto.com/docs/testing/
+description: Okteto provides isolated development and preview environments for testing. These are not traditional sandbox environments but production-like Kubernetes environments for development and testing purposes.
+docs: https://www.okteto.com/docs/testing/
+features:
+- Isolated development environments on Kubernetes
+- Preview environments for pull requests
+- Test containers for running tests in development environments
+- Local-to-cloud code synchronization
+- Remote debugging capabilities
+test_vs_live: Development and preview environments run on the same infrastructure as production, providing realistic testing environments
+note: Okteto environments are designed for development and testing of applications before deployment to production. They provide realistic, isolated Kubernetes environments rather than traditional API sandboxes.

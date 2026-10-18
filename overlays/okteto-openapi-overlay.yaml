@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: Okteto Public API — API Evangelist enhancements
+  version: 1.0.0
+extends: ../openapi/_original/okteto-openapi.yml
+x-generated: '2026-10-18'
+x-method: generated
+actions:
+- target: $.info
+  update:
+    x-api-evangelist-status: beta
+    x-auth-note: Requires an Okteto Admin Access Token sent as a Bearer token (https://www.okteto.com/docs/admin/okteto-api.md)
+    x-llms-txt: https://www.okteto.com/llms.txt
+    x-agent-skills: https://github.com/okteto/okteto-agent-skills
+- target: $.servers[0]
+  update:
+    x-note: oktetoURL is the host of your own Okteto instance (BYOC or Self-Hosted); okteto.test.com is a placeholder default.
+- target: $.paths['/namespaces'].get
+  update:
+    x-mcp-tool: list_namespaces
+    x-agent-safe: read-only
+- target: $.paths['/namespaces/{namespaceName}/applications'].get
+  update:
+    x-mcp-tool: list_applications_for_namespace
+    x-agent-safe: read-only

@@ -1,0 +1,34 @@
+generated: '2026-10-18'
+method: derived
+source: openapi/okteto-openapi.yml
+format: application/json
+envelope:
+  field: message
+  type: object
+problems:
+- status: '400'
+  title: Bad Request
+  type: BadRequestError
+  description: Some or all of the parameters are invalid
+  remediation: Check request parameters and ensure they are valid
+- status: '401'
+  title: Unauthorized
+  type: UnauthorizedError
+  description: Access token is missing or invalid
+  remediation: Provide a valid Bearer token in the Authorization header
+- status: '403'
+  title: Forbidden
+  type: ForbiddenError
+  description: Provided token does not have the necessary permissions to perform the operation
+  remediation: Use a token with appropriate permissions or contact administrator
+- status: '404'
+  title: Not Found
+  type: NotFoundError
+  description: Requested resource was not found
+  remediation: Check resource identifier and ensure it exists
+- status: '500'
+  title: Internal Server Error
+  type: InternalServerError
+  description: An unexpected error occurred
+  remediation: Contact support if issue persists
+note: Error responses follow a consistent format with a 'message' field containing error details. The API is in beta and error formats may change.
