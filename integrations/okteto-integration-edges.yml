@@ -21,6 +21,7 @@ checked:
 - https://officialskills.sh/sitemap.xml
 - https://skillsmp.com/sitemap.xml
 - https://www.skills.sh/sitemap.xml
+- docker-hub/integrations/docker-hub-integration-edges.yml
 summary: null
 marketplace_apps: []
 edges:
@@ -159,4 +160,37 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-agent-skills.py
   first_seen: '2026-10-20'
+- partner_name: Docker Hub (docker-verified-publisher)
+  partner: docker-hub
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: docker-verified-publisher
+  evidence: https://hub.docker.com/u/okteto
+  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
+  apps:
+  - okteto/node
+  - okteto/okteto
+  - okteto/bin
+  - okteto/cloud-proxy
+  - okteto/grafana
+  - okteto/prometheus
+  - okteto/sample-app
+  - okteto/nginx
+  - okteto/mail
+  - okteto/todo
+  - okteto/demo
+  - okteto/example-react
+  - okteto/compose
+  - okteto/devtools
+  - okteto/example-react-frontend
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Docker Verified Publisher
+  badges:
+  - Docker Verified Publisher
 templates: []
